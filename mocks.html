@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Mocks 
+
+---
+
+# Mocks
+
+1. C'est quoi ce truc ?
+2. Quand utiliser les mocks
+3. Possibilité de mise en oeuvre
+4. Création d'un bouchon
+
+---
+
+# C'est quoi ce truc ? 
+
+les dépendances entre les modules d'un programme complique ou rend impossible l'écriture des tests
+les dépendances rendent les tests vulnérables aux évolutions des modules amonts et avals
+
+(il n'en faut pas bcp pour démotiver l'écriture de TU) toutes ses contraintes diminuent la motivation pour écrire des tests
+---
+
+Les Mocks permettent de casser ces dépendances !
+
+---
+
+# Quand utiliser les bouchons
+
+- lorsque le sous système est lent => ralenti l'execution des TU => bouchon pour accélerer les tests
+- lorsque le systeme utilise une interface utilisateur blocante => simulation de la saisie utilisateur
+- lorsque l'objet réel n'existe pas encore (code développé par des équipes différentes)
+- lorsque le sous système est difficile à initialiser
+- lorsque les mises en erreur ne sont pas reproductibles (indisponibilité d'un base de données par exemple)
+
+---
+
+D'une manière générale, l'utilisation des bouchons permet de simplifier l'écriture des tests unitaires. Cependant, l'effort d'écriture de ces bouchons peut devenir important
+
+---
+
+# Mise en oeuvre 
+
+ - Inversion de controle
+ - Injection de dépendance
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
