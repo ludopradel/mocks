@@ -62,8 +62,86 @@ D'une manière générale, l'utilisation des bouchons permet de simplifier l'éc
 
 # Mise en oeuvre 
 
- - Inversion de controle
+ -ISOLATION => Inversion de controle
  - Injection de dépendance
+
+---
+
+Create manual Stub from interface
+create a stub for each test as needed
+
+Presenter don't need stub because we don't expect any response from him => we just need to spy it
+
+Spy save information and returns them to the implementation
+
+---
+
+# Test Double
+
+Test double    <= Fake
+
+    /\        
+    ||
+   Dummy
+    /\
+    ||
+   Stub
+    /\
+    ||
+   Spy
+    /\
+    ||
+   Mock
+
+Ce qu'on appelle un mock est en réalité un Test double (doublure de test), mock étant utilisé avant de définir réellement les tests doubles ce nom est resté.
+
+---
+
+# Dummy
+
+- just implement interface
+- all functions do nothing
+- return values as close to 0 or null as possible
+
+---
+
+# Stub 
+
+- is a dummy
+- returns a values corresponding to the need of the test
+- drive the production code to the specific path
+
+---
+
+# Spy
+
+- is a stub
+- no external action
+- returns fixed value to drive production code
+- record facts about the invocation & make those facts available to the test 
+   => so the test could verify if those function are called properly
+
+---
+
+# Mock
+
+- is a spy 
+- it knows what you expect ti see
+- get functions in it
+- test asks the mock if everything went as expected
+
+---
+
+# Fake
+- a simulator !
+- it pretends to have some realistic behaviour to help the test
+
+/!\ Fakes grows with the system & become more & more complicated => make sure to test it ! 
+/!\ Fake is pretty useless for Unit test, but useful for integration test
+=> Avoid fakes when you can 
+
+
+
     </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
     </script>
